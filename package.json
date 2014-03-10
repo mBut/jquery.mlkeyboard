@@ -3,7 +3,12 @@
   "version": "0.0.1",
   "description": "jQuery multilanguage keyboard",
   "author": "Mihails Butorins",
+  "homepage": "http://mbut.github.io/jquery.mlkeyboard/",
   "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/mBut/jquery.mlkeyboard"
+  },
   "devDependencies": {
     "grunt": "^0.4.2",
     "grunt-contrib-uglify": "^0.3.2",
