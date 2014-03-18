@@ -315,7 +315,7 @@ Keyboard.prototype.setUpFor = function(obj) {
 Keyboard.prototype.inputLocalOptions = function() {
   var options = {};
   for (var key in this.defaults) {
-    var input_option = this.$current_input.data("mlkeyboard-"+key);
+    var input_option = this.$current_input.attr("data-mlkeyboard-"+key);
     if (input_option == "false") {
       input_option = false;
     } else if (input_option == "true") {
