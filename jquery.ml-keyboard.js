@@ -264,7 +264,7 @@ Keyboard.prototype.setUpFor = function(obj) {
   obj.bind('focus', function(){
     if (!_this.keep_focus || !_this.$current_input || $(this)[0] !== _this.$current_input[0]) {
       if (_this.$current_input) {
-        _this.keep_focus = true
+        _this.keep_focus = true;
       }
 
       _this.$current_input = $(this);
