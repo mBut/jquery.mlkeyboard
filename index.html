@@ -57,7 +57,11 @@
           <li>(boolean) <b>active_shift:</b> when user first time focus on input field virtual keyboards shift is active. Default value - <b>true</b>.
           <li>(boolean) <b>active_caps:</b> initial virtual keyboards caps lock state. Default value - <b>false</b>.
           <li>(boolean) <b>is_hidden:</b> to create keyboard always visible this value should be changed to false. Default value - <b>true</b>.
-          <li>(integer) <b>speed: </b> is speed at what keyboard shows and hides. Default value - <b>300</b>.
+          <li>(integer) <b>open_speed:</b> is speed at what keyboard shows. Default value - <b>300</b>.
+
+          <li>(integer) <b>close_speed:</b> is speed at what keyboard hides back. Devault value - <b>100</b>.
+
+          <li>(boolean) <b>enabled:</b> - change it to false if you want temporary disable keyboard. This param is useful when defines as input data attribute (read below how to set up single inputs with data attributes).
         </ul>
         <p>To change behaviour of single input field special data attribute should be added to it's tag name <code>data-mlkeyboard-&lt;option&gt;="value"</code> where <code>option</code> is the same attribute like it's described before.
 
