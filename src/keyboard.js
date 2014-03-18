@@ -6,7 +6,8 @@ function Keyboard(options){
     active_shift: true,
     active_caps: false,
     is_hidden: true,
-    speed: 300
+    speed: 300,
+    enabled: true
   };
 
   this.global_options = $.extend({}, this.defaults, options);
@@ -88,20 +89,20 @@ Keyboard.prototype.setUpFor = function(obj) {
   var _this = this;
 
   obj.bind('focus', function(){
-    if (!_this.keep_focus || !_this.$current_input || $(this)[0] !== _this.$current_input[0]) {
-      if (_this.$current_input) {
-        _this.keep_focus = true
-      }
+    // If here is no any input in focus or focus was changed to different input
+    // then keyboard should be set-upped and showed
+    var input_changed = !_this.$current_input || $(this)[0] !== _this.$current_input[0];
+
+    if (!_this.keep_focus || input_changed) {
+      if (input_changed) _this.keep_focus = true;
 
       _this.$current_input = $(this);
+      _this.options = $.extend({}, _this.global_options, _this.inputLocalOptions());
 
-      var local_options = {};
-      for (var key in _this.defaults) {
-        var option = obj.data("mlkeyboard-"+key);
-        if (option) { local_options[key] = option; }
+      if (!_this.options.enabled) {
+        _this.keep_focus = false;
+        return;
       }
-
-      _this.options = $.extend({}, _this.global_options, local_options);
 
       if (_this.$current_input.val() !== '') {
         _this.options.active_shift = false;
@@ -116,7 +117,13 @@ Keyboard.prototype.setUpFor = function(obj) {
   });
 
   obj.bind('blur', function(){
+    var VERIFY_STATE_DELAY = 500;
+
+    // Input focus changes each time when user click on keyboard key
+    // To prevent momentary keyboard collapse input state verifies with timers help
+    // Any key click action set current inputs keep_focus variable to true
     clearTimeout(_this.blur_timeout);
+
     _this.blur_timeout = setTimeout(function(){
       if (!_this.keep_focus) {
         if (_this.options.is_hidden) {
@@ -125,9 +132,24 @@ Keyboard.prototype.setUpFor = function(obj) {
       } else {
         _this.keep_focus = false;
       }
-    }, 500);
+    }, VERIFY_STATE_DELAY);
 
   });
+};
+
+Keyboard.prototype.inputLocalOptions = function() {
+  var options = {};
+  for (var key in this.defaults) {
+    var input_option = this.$current_input.data("mlkeyboard-"+key);
+    if (input_option == "false") {
+      input_option = false;
+    } else if (input_option == "true") {
+      input_option = true;
+    }
+    if (typeof input_option !== 'undefined') { options[key] = input_option; }
+  }
+
+  return options;
 };
 
 Keyboard.prototype.printChar = function(char) {
