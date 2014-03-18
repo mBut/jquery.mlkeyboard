@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>jQuery Multilanguage Keyboard</title>
+
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="jquery.ml-keyboard.css">
+  <link rel="stylesheet" type="text/css" href="demo.css">
+
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="jquery.ml-keyboard.js"></script>
+  <script src="demo.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="page-header">jQuery MultiLanguage keyboard</h2>
+    <i>Current version 0.0.1</i>
+    <p>
+      <h5>ML Keyboard is a jQuery virtual keyboard which makes possible to enter text in...</h5>
+    </p>
+    <div class="row">
+      <div class="col-md-12">
+        <h5>English...</h5>
+        <input type="text" id="example-1" class="col-md-12" placeholder="Try"/>
+        <h5>Russian...</h5>
+        <input type="text" id="example-2" class="col-md-12" placeholder="Try" data-mlkeyboard-layout="ru"/>
+        <h5>Spanish...</h5><i>(click vowels to select accents)</i>
+        <input type="text" id="example-2" class="col-md-12" placeholder="Try" data-mlkeyboard-layout="es"/>
+        <h5>And in all other possible languages</h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="page-header">Simple Usage</h3>
+        <ul>
+          <li>Download <code>jquery.ml-keyboard.min.js</code> and <code>jquery.ml-keyboard.css</code> files and add to your project.</li>
+          <li>Activate the plugin on the input fields with prefered layot <code>$('input').mlKeyboard({layout: 'es'});</code>.</li>
+          <li>It's ready.</li>
+        </ul>
+
+        <h5>Options</h5>
+        <p>The following options are available to pass into ML Keyboard on initialization.</p>
+        <ul>
+          <li>
+            (string) <b>layout:</b> set layout which is applicable to all input fields. By default it has value 'en_us' what is equal to American English layout.
+            <h5>Others currently possible layouts</h5>
+            <ul id="layots_list">
+              <li><b>es</b> - Spanish</li>
+              <li><b>ru</b> - Russian</li>
+            </ul>
+          </li>
+          <li>(boolean) <b>active_shift:</b> when user first time focus on input field virtual keyboards shift is active. Default value - <b>true</b>.
+          <li>(boolean) <b>active_caps:</b> initial virtual keyboards caps lock state. Default value - <b>false</b>.
+          <li>(boolean) <b>is_hidden:</b> to create keyboard always visible this value should be changed to false. Default value - <b>true</b>.
+          <li>(integer) <b>speed: </b> is speed at what keyboard shows and hides. Default value - <b>300</b>.
+        </ul>
+        <p>To change behaviour of single input field special data attribute should be added to it's tag name <code>data-mlkeyboard-&lt;option&gt;="value"</code> where <code>option</code> is the same attribute like it's described before.
+
+        <h3 class="page-header">Advanced Usage</h3>
+        <p>
+          By default plugin goes with all layouts included, but it's possible to customize plugin and left only some layouts as also new layouts can be easy added.
+        </p>
+        <p>
+          <i>TODO: Complete instructions</i>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
