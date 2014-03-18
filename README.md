@@ -20,7 +20,11 @@ The following options are available to pass into ML Keyboard on initialization.
 
 * (boolean) **is_hidden:** to create keyboard always visible this value should be changed to false. Default value - true.
 
-* (integer) **speed:** is speed at what keyboard shows and hides. Default value - 300.
+* (integer) **open_speed:** is speed at what keyboard shows. Default value - 300.
+
+* (integer) **close_speed:** is speed at what keyboard hides back. Devault value - 100.
+
+* (boolean) **enabled:** - change it to false if you want temporary disable keyboard. This param is useful when defines as input data attribute (read below how to set up single inputs with data attributes).
 
 To change behaviour of single input field special data attribute should be added to it's tag name <code>data-mlkeyboard-&lt;option&gt;="value"</code> where <code>option</code> is the same attribute like it's described before.
         
