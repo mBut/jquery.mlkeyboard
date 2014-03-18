@@ -6,8 +6,8 @@ function Keyboard(options){
     active_shift: true,
     active_caps: false,
     is_hidden: true,
-    openSpeed: 300,
-    closeSpeed: 100,
+    open_speed: 300,
+    close_speed: 100,
     enabled: true
   };
 
