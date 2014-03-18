@@ -6,7 +6,8 @@ function Keyboard(options){
     active_shift: true,
     active_caps: false,
     is_hidden: true,
-    speed: 300,
+    openSpeed: 300,
+    closeSpeed: 100,
     enabled: true
   };
 
@@ -111,7 +112,7 @@ Keyboard.prototype.setUpFor = function(obj) {
       _this.setUpKeys();
 
       if (_this.options.is_hidden) {
-        _this.$keyboard.slideDown(_this.options.speed);
+        _this.$keyboard.slideDown(_this.options.openSpeed);
       }
     }
   });
@@ -127,7 +128,7 @@ Keyboard.prototype.setUpFor = function(obj) {
     _this.blur_timeout = setTimeout(function(){
       if (!_this.keep_focus) {
         if (_this.options.is_hidden) {
-          _this.$keyboard.slideUp(_this.options.speed);
+          _this.$keyboard.slideUp(_this.options.closeSpeed);
         }
       } else {
         _this.keep_focus = false;
