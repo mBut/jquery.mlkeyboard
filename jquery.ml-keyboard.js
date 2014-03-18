@@ -356,6 +356,10 @@ Keyboard.prototype.showModifications = function(caller) {
   top = caller.$key.position().top - holder_padding;
   left = caller.$key.position().left - _this.modifications.length * caller.$key.width()/2;
 
+  this.$modifications_holder.one('mouseleave', function(){
+    _this.destroyModifications();
+  });
+
   this.$modifications_holder.css({
     width: width,
     top: top,
