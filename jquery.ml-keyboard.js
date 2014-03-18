@@ -330,13 +330,13 @@ Keyboard.prototype.inputLocalOptions = function() {
 Keyboard.prototype.printChar = function(char) {
   var current_val = this.$current_input.val();
   this.$current_input.val(current_val + char);
-  this.$current_input.focus();
+  this.$current_input.focus().trigger("input");
 };
 
 Keyboard.prototype.deleteChar = function() {
   var current_val = this.$current_input.val();
   this.$current_input.val(current_val.slice(0,-1));
-  this.$current_input.focus();
+  this.$current_input.focus().trigger("input");
 };
 
 Keyboard.prototype.showModifications = function(caller) {
