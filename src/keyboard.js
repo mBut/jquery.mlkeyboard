@@ -38,8 +38,8 @@ Keyboard.prototype.setUpKeys = function() {
   this.active_caps = this.options.active_caps;
 
   $.each(this.keys, function(i, key){
-    key.preferences = mlKeyboard.layouts[_this.options.layout][i];
 
+    key.preferences = mlKeyboard.layouts[_this.options.layout][i];
     key.setCurrentValue();
     key.setCurrentAction();
     key.toggleActiveState();

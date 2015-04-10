@@ -1,6 +1,6 @@
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
-mlKeyboard.layouts.ru = [
+mlKeyboard.layouts.ru_RU = [
   {d: 'ё',u: 'Ё'},
   {d: '1',u: '!'},
   {d: '2',u: '\''},

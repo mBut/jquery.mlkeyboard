@@ -212,8 +212,8 @@ Keyboard.prototype.setUpKeys = function() {
   this.active_caps = this.options.active_caps;
 
   $.each(this.keys, function(i, key){
-    key.preferences = mlKeyboard.layouts[_this.options.layout][i];
 
+    key.preferences = mlKeyboard.layouts[_this.options.layout][i];
     key.setCurrentValue();
     key.setCurrentAction();
     key.toggleActiveState();
@@ -406,7 +406,7 @@ Keyboard.prototype.changeKeysState = function() {
 
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
-mlKeyboard.layouts.en_us = [
+mlKeyboard.layouts.en_US = [
   {d: '`', u: '~'},
   {d: '1',u: '!'},
   {d: '2',u: '@'},
@@ -465,7 +465,7 @@ mlKeyboard.layouts.en_us = [
 
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
-mlKeyboard.layouts.ru = [
+mlKeyboard.layouts.ru_RU = [
   {d: 'ё',u: 'Ё'},
   {d: '1',u: '!'},
   {d: '2',u: '\''},
@@ -524,7 +524,7 @@ mlKeyboard.layouts.ru = [
 
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
-mlKeyboard.layouts.es = [
+mlKeyboard.layouts.es_ES = [
   {d: '<', u: '>'},
   {d: '1',u: '¡'},
   {d: '2',u: '!'},
@@ -596,9 +596,10 @@ mlKeyboard.layouts.es = [
   {}, // Right shift
   {}  // Space
 ];
+
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
-mlKeyboard.layouts.pt = [
+mlKeyboard.layouts.pt_PT = [
   {d: '\/', u: '|'},
   {d: '1',u: '!'},
   {d: '2',u: '"'},

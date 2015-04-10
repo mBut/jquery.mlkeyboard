@@ -1,6 +1,6 @@
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
-mlKeyboard.layouts.pt = [
+mlKeyboard.layouts.pt_PT = [
   {d: '\/', u: '|'},
   {d: '1',u: '!'},
   {d: '2',u: '"'},
