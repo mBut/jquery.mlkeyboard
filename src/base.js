@@ -19,6 +19,7 @@
 
 })(jQuery);
 
-@@include('layouts/en_us.js')
-@@include('layouts/ru.js')
-@@include('layouts/es.js')
+@@include('layouts/en_US.js')
+@@include('layouts/ru_RU.js')
+@@include('layouts/es_ES.js')
+@@include('layouts/pt_PT.js')

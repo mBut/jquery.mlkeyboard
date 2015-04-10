@@ -2,7 +2,7 @@ var KEYS_COUNT = 53;
 
 function Keyboard(options){
   this.defaults = {
-    layout: 'en_us',
+    layout: 'en_US',
     active_shift: true,
     active_caps: false,
     is_hidden: true,
