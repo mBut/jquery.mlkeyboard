@@ -2,7 +2,7 @@ var KEYS_COUNT = 53;
 
 function Keyboard(options){
   this.defaults = {
-    layout: 'en_us',
+    layout: 'en_US',
     active_shift: true,
     active_caps: false,
     is_hidden: true,
@@ -38,8 +38,8 @@ Keyboard.prototype.setUpKeys = function() {
   this.active_caps = this.options.active_caps;
 
   $.each(this.keys, function(i, key){
-    key.preferences = mlKeyboard.layouts[_this.options.layout][i];
 
+    key.preferences = mlKeyboard.layouts[_this.options.layout][i];
     key.setCurrentValue();
     key.setCurrentAction();
     key.toggleActiveState();

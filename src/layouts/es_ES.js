@@ -1,6 +1,6 @@
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
-mlKeyboard.layouts.es = [
+mlKeyboard.layouts.es_ES = [
   {d: '<', u: '>'},
   {d: '1',u: '¡'},
   {d: '2',u: '!'},
