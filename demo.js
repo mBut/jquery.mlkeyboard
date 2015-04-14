@@ -1,3 +1,3 @@
 $(document).ready(function(){
-  $('input').mlKeyboard();
+  $('input').mlKeyboard({layout: 'en_US'});
 });

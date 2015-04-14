@@ -176,7 +176,7 @@ KeySpace.prototype.constructor = KeySpace;
 
 function Keyboard(options){
   this.defaults = {
-    layout: 'en_us',
+    layout: 'en_US',
     active_shift: true,
     active_caps: false,
     is_hidden: true,
@@ -212,8 +212,8 @@ Keyboard.prototype.setUpKeys = function() {
   this.active_caps = this.options.active_caps;
 
   $.each(this.keys, function(i, key){
-    key.preferences = mlKeyboard.layouts[_this.options.layout][i];
 
+    key.preferences = mlKeyboard.layouts[_this.options.layout][i];
     key.setCurrentValue();
     key.setCurrentAction();
     key.toggleActiveState();
@@ -315,7 +315,7 @@ Keyboard.prototype.setUpFor = function(obj) {
 Keyboard.prototype.inputLocalOptions = function() {
   var options = {};
   for (var key in this.defaults) {
-    var input_option = this.$current_input.data("mlkeyboard-"+key);
+    var input_option = this.$current_input.attr("data-mlkeyboard-"+key);
     if (input_option == "false") {
       input_option = false;
     } else if (input_option == "true") {
@@ -330,13 +330,13 @@ Keyboard.prototype.inputLocalOptions = function() {
 Keyboard.prototype.printChar = function(char) {
   var current_val = this.$current_input.val();
   this.$current_input.val(current_val + char);
-  this.$current_input.focus();
+  this.$current_input.focus().trigger("input");
 };
 
 Keyboard.prototype.deleteChar = function() {
   var current_val = this.$current_input.val();
   this.$current_input.val(current_val.slice(0,-1));
-  this.$current_input.focus();
+  this.$current_input.focus().trigger("input");
 };
 
 Keyboard.prototype.showModifications = function(caller) {
@@ -355,6 +355,10 @@ Keyboard.prototype.showModifications = function(caller) {
   width = (caller.$key.width() * _this.modifications.length) + (_this.modifications.length * 6);
   top = caller.$key.position().top - holder_padding;
   left = caller.$key.position().left - _this.modifications.length * caller.$key.width()/2;
+
+  this.$modifications_holder.one('mouseleave', function(){
+    _this.destroyModifications();
+  });
 
   this.$modifications_holder.css({
     width: width,
@@ -388,6 +392,7 @@ Keyboard.prototype.changeKeysState = function() {
   });
 };
 
+
   $.fn.mlKeyboard = function(options) {
     var keyboard = new Keyboard(options);
     keyboard.init();
@@ -401,7 +406,7 @@ Keyboard.prototype.changeKeysState = function() {
 
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
-mlKeyboard.layouts.en_us = [
+mlKeyboard.layouts.en_US = [
   {d: '`', u: '~'},
   {d: '1',u: '!'},
   {d: '2',u: '@'},
@@ -460,7 +465,7 @@ mlKeyboard.layouts.en_us = [
 
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
-mlKeyboard.layouts.ru = [
+mlKeyboard.layouts.ru_RU = [
   {d: 'ё',u: 'Ё'},
   {d: '1',u: '!'},
   {d: '2',u: '\''},
@@ -519,7 +524,7 @@ mlKeyboard.layouts.ru = [
 
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
-mlKeyboard.layouts.es = [
+mlKeyboard.layouts.es_ES = [
   {d: '<', u: '>'},
   {d: '1',u: '¡'},
   {d: '2',u: '!'},
@@ -591,3 +596,86 @@ mlKeyboard.layouts.es = [
   {}, // Right shift
   {}  // Space
 ];
+
+var mlKeyboard = mlKeyboard || {layouts: {}};
+
+mlKeyboard.layouts.pt_PT = [
+  {d: '\/', u: '|'},
+  {d: '1',u: '!'},
+  {d: '2',u: '"'},
+  {d: '3',u: '#'},
+  {d: '4',u: '$'},
+  {d: '5',u: '%'},
+  {d: '6',u: '&'},
+  {d: '7',u: '/'},
+  {d: '8',u: '('},
+  {d: '9',u: ')'},
+  {d: '0',u: '='},
+  {d: '-',u: '?'},
+  {d: '~',u: '^'},
+  {}, // Delete
+  {}, // Tab
+  {d: 'q',u: 'Q'},
+  {d: 'w',u: 'W'},
+  {d: 'e',u: 'E', m: [
+    {d: 'e', u: 'E'},
+    {d: 'é', u: 'É'}
+  ]},
+  {d: 'r',u: 'R'},
+  {d: 't',u: 'T'},
+  {d: 'y',u: 'Y'},
+  {d: 'u',u: 'U', m: [
+    {d: 'u', u: 'U'},
+    {d: 'ú', u: 'Ú'}
+  ]},
+  {d: 'i',u: 'I', m: [
+    {d: 'i', u: 'I'},
+    {d: 'í', u: 'Í'}
+  ]},
+  {d: 'o',u: 'O', m: [
+    {d: 'o', u: 'O'},
+    {d: 'ó', u: 'Ó'},
+    {d: 'õ', u: 'Õ'},
+    {d: 'ô', u: 'Ô'}
+  ]},
+  {d: 'p',u: 'P'},
+  {d: '´',u: 'º'},
+  {d: '`',u: '¨'},
+  {d: '\'',u: '"'},
+  {}, // Caps lock
+  {d: 'a',u: 'A', m: [
+    {d: 'a', u: 'A'},
+    {d: 'á', u: 'Á'},
+    {d: 'à', u: 'À'},
+    {d: 'ã', u: 'Ã'},
+    {d: 'â', u: 'Â'}
+  ]},
+  {d: 's',u: 'S'},
+  {d: 'd',u: 'D'},
+  {d: 'f',u: 'F'},
+  {d: 'g',u: 'G'},
+  {d: 'h',u: 'H'},
+  {d: 'j',u: 'J'},
+  {d: 'k',u: 'K'},
+  {d: 'l',u: 'L'},
+  {d: 'ñ',u: 'Ñ'},
+  {d: ';',u: ':'},
+  {}, // Return
+  {}, // Left shift
+  {d: 'z',u: 'Z'},
+  {d: 'x',u: 'X'},
+  {d: 'c',u: 'C', m: [
+    {d: 'c', u: 'C'},
+    {d: 'ç', u: 'Ç'}
+  ]},
+  {d: 'v',u: 'V'},
+  {d: 'b',u: 'B'},
+  {d: 'n',u: 'N'},
+  {d: 'm',u: 'M'},
+  {d: ',',u: '¿'},
+  {d: '.',u: '?'},
+  {d: 'ç',u: 'Ç'},
+  {}, // Right shift
+  {}  // Space
+];
+
