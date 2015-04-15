@@ -7,7 +7,6 @@
 ## Requirements
 * [GRUNT](http://gruntjs.com/)  
 * [RubyGems](https://rubygems.org/) - requires to install sass
-* Understand Grunt, NPM and git
 
 ## Add new layout file
 the best and simply way is to copy and rename existent file
