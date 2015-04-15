@@ -42,7 +42,7 @@ The layout complete:
 
 ```javascript
 mlKeyboard.layouts.it_IT = [
-  {d: '/\', u: '|'},
+  {d: '\\', u: '|'},
   {d: '1',u: '!'},
   {d: '2',u: '"'},
   {d: '3',u: '£'},
