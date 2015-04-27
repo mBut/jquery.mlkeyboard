@@ -16,3 +16,21 @@ input {
 ul#layots_list {
   margin-bottom: 20px;
 }
+
+.example-block {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #F2F2F2;
+}
+
+.example-block .code {
+  background: #FFF;
+  display: inline-block;
+  width: 100%;
+  padding: 5px 10px;
+  border: dashed #B3B3B3 1px;
+}
+
+#example-4-btn {
+  margin: 20px 0 0 10px;
+}

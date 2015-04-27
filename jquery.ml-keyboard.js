@@ -182,6 +182,9 @@ function Keyboard(options){
     is_hidden: true,
     open_speed: 300,
     close_speed: 100,
+    show_on_focus: true,
+    hide_on_blur: true,
+    trigger: undefined,
     enabled: true
   };
 
@@ -260,56 +263,75 @@ Keyboard.prototype.renderKeys = function() {
   return $keys_holder;
 };
 
-Keyboard.prototype.setUpFor = function(obj) {
+Keyboard.prototype.setUpFor = function($input) {
   var _this = this;
 
-  obj.bind('focus', function(){
-    // If here is no any input in focus or focus was changed to different input
-    // then keyboard should be set-upped and showed
-    var input_changed = !_this.$current_input || $(this)[0] !== _this.$current_input[0];
+  if (this.options.show_on_focus) {
+    $input.bind('focus', function() { _this.showKeyboard($input); });
+  }
 
-    if (!_this.keep_focus || input_changed) {
-      if (input_changed) _this.keep_focus = true;
+  if (this.options.hide_on_blur) {
+    $input.bind('blur', function() {
+      var VERIFY_STATE_DELAY = 500;
 
-      _this.$current_input = $(this);
-      _this.options = $.extend({}, _this.global_options, _this.inputLocalOptions());
+      // Input focus changes each time when user click on keyboard key
+      // To prevent momentary keyboard collapse input state verifies with timers help
+      // Any key click action set current inputs keep_focus variable to true
+      clearTimeout(_this.blur_timeout);
 
-      if (!_this.options.enabled) {
-        _this.keep_focus = false;
-        return;
+      _this.blur_timeout = setTimeout(function(){
+        if (!_this.keep_focus) { _this.hideKeyboard(); }
+        else { _this.keep_focus = false; }
+      }, VERIFY_STATE_DELAY);
+    });
+  }
+
+  if (this.options.trigger) {
+    var $trigger = $(this.options.trigger);
+    $trigger.bind('click', function(e) {
+      e.preventDefault();
+
+      if (_this.isVisible) { _this.hideKeyboard(); }
+      else {
+        _this.showKeyboard($input);
+        $input.focus();
       }
+    });
+  }
+};
 
-      if (_this.$current_input.val() !== '') {
-        _this.options.active_shift = false;
-      }
+Keyboard.prototype.showKeyboard = function($input) {
+  var input_changed = !this.$current_input || $input[0] !== this.$current_input[0];
 
-      _this.setUpKeys();
+  if (!this.keep_focus || input_changed) {
+    if (input_changed) this.keep_focus = true;
 
-      if (_this.options.is_hidden) {
-        _this.$keyboard.slideDown(_this.options.openSpeed);
-      }
+    this.$current_input = $input;
+    this.options = $.extend({}, this.global_options, this.inputLocalOptions());
+
+    if (!this.options.enabled) {
+      this.keep_focus = false;
+      return;
     }
-  });
 
-  obj.bind('blur', function(){
-    var VERIFY_STATE_DELAY = 500;
+    if (this.$current_input.val() !== '') {
+      this.options.active_shift = false;
+    }
 
-    // Input focus changes each time when user click on keyboard key
-    // To prevent momentary keyboard collapse input state verifies with timers help
-    // Any key click action set current inputs keep_focus variable to true
-    clearTimeout(_this.blur_timeout);
+    this.setUpKeys();
 
-    _this.blur_timeout = setTimeout(function(){
-      if (!_this.keep_focus) {
-        if (_this.options.is_hidden) {
-          _this.$keyboard.slideUp(_this.options.closeSpeed);
-        }
-      } else {
-        _this.keep_focus = false;
-      }
-    }, VERIFY_STATE_DELAY);
+    if (this.options.is_hidden) {
+      this.isVisible = true;
+      this.$keyboard.slideDown(this.options.openSpeed);
+    }
+  }
+};
 
-  });
+Keyboard.prototype.hideKeyboard = function() {
+  if (this.options.is_hidden) {
+    this.isVisible = false;
+    this.$keyboard.slideUp(this.options.closeSpeed);
+  }
 };
 
 Keyboard.prototype.inputLocalOptions = function() {
@@ -675,6 +697,78 @@ mlKeyboard.layouts.pt_PT = [
   {d: ',',u: '¿'},
   {d: '.',u: '?'},
   {d: 'ç',u: 'Ç'},
+  {}, // Right shift
+  {}  // Space
+];
+
+var mlKeyboard = mlKeyboard || {layouts: {}};
+
+mlKeyboard.layouts.it_IT = [
+  {d: '\\', u: '|'},
+  {d: '1',u: '!'},
+  {d: '2',u: '"'},
+  {d: '3',u: '£'},
+  {d: '4',u: '$'},
+  {d: '5',u: '%'},
+  {d: '6',u: '&'},
+  {d: '7',u: '/'},
+  {d: '8',u: '('},
+  {d: '9',u: ')'},
+  {d: '0',u: '='},
+  {d: '\'',u: '?'},
+  {d: 'ì',u: '^'},
+  {}, // Delete
+  {}, // Tab
+  {d: 'q',u: 'Q'},
+  {d: 'w',u: 'W'},
+  {d: 'e',u: 'E'},
+  {d: 'r',u: 'R'},
+  {d: 't',u: 'T'},
+  {d: 'y',u: 'Y'},
+  {d: 'u',u: 'U'},
+  {d: 'i',u: 'I'},
+  {d: 'o',u: 'O'},
+  {d: 'p',u: 'P'},
+  {d: 'e',u: 'é', m: [
+    {d: 'e', u: 'é'},
+    {d: '[', u: '{'}
+  ]},
+  {d: '+',u: '*', m: [
+    {d: '+', u:'*'},
+    {d: ']', u: '}'}
+  ]},
+  {}, // Caps lock
+  {d: 'a',u: 'A'},
+  {d: 's',u: 'S'},
+  {d: 'd',u: 'D'},
+  {d: 'f',u: 'F'},
+  {d: 'g',u: 'G'},
+  {d: 'h',u: 'H'},
+  {d: 'j',u: 'J'},
+  {d: 'k',u: 'K'},
+  {d: 'l',u: 'L'},
+  {d: 'ò',u: 'ç', m:[
+    {d: 'ò',u: 'ç'},
+    {d:'@', u: 'Ç'}
+  ]},
+  {d: 'à',u: '°', m:[
+    {d: 'à',u: '°'},
+    {d:'#', u: '∞'}
+  ]},
+  {d: 'ù',u: '§'},
+  {}, // Return
+  {}, // Left shift
+  {d: '<', u:'>'},
+  {d: 'z',u: 'Z'},
+  {d: 'x',u: 'X'},
+  {d: 'c',u: 'C'},
+  {d: 'v',u: 'V'},
+  {d: 'b',u: 'B'},
+  {d: 'n',u: 'N'},
+  {d: 'm',u: 'M'},
+  {d: ',',u: ';'},
+  {d: '.',u: ':'},
+  {d: '-',u: '_'},
   {}, // Right shift
   {}  // Space
 ];

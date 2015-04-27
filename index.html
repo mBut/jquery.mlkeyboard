@@ -19,20 +19,68 @@
   <div class="container">
     <h2 class="page-header">jQuery MultiLanguage keyboard</h2>
     <i>Current version 0.0.1</i>
-    <p>
-      <h5>ML Keyboard is a jQuery virtual keyboard which makes possible to enter text in...</h5>
-    </p>
+    <h4>ML Keyboard usage examples</h4>
     <div class="row">
-      <div class="col-md-12">
-        <h5>English...</h5>
-        <input type="text" id="example-1" class="col-md-12" placeholder="Try"/>
-        <h5>Russian...</h5>
-        <input type="text" id="example-2" class="col-md-12" placeholder="Try" data-mlkeyboard-layout="ru_RU"/>
-        <h5>Spanish...</h5><i>(click vowels to select accents)</i>
-        <input type="text" id="example-2" class="col-md-12" placeholder="Try" data-mlkeyboard-layout="es_ES"/>
-        <h5>Portuguese...</h5><i>(click vowels to select accents)</i>
-        <input type="text" id="example-3" class="col-md-12" placeholder="Try" data-mlkeyboard-layout="pt_PT"/>
-        <h5>And in all other possible languages</h5>
+      <div class="col-md-6">
+        <div class="example-block">
+          <h4>English</h4>
+          <input type="text" id="example-1" class="col-md-12" placeholder="Try"/>
+          <div class='code'>
+            <code>
+              $('input#example-1').mlKeyboard({<br/>
+                &nbsp;&nbsp;layout: 'en_US'<br/>
+              });
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="example-block">
+          <h4>Russian</h4>
+          <input type="text" id="example-2" class="col-md-12" placeholder="Try"/>
+          <div class='code'>
+            <code>
+              $('input#example-2').mlKeyboard({<br/>
+                &nbsp;&nbsp;layout: 'ru_RU'<br/>
+              });
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="example-block">
+          <h4>
+            Spanish
+            <i>(click vowels to select accents)</i>
+          </h4>
+          <input type="text" id="example-3" class="col-md-12" placeholder="Try"/>
+          <div class='code'>
+            <code>
+              $('input#example-3').mlKeyboard({<br/>
+                &nbsp;&nbsp;layout: 'es_ES'<br/>
+              });
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="example-block">
+          <h4>Cusom keyboard trigger button</h4>
+          <input type="text" id="example-4" class="col-md-10" placeholder="Try"/>
+          <a href='#' id="example-4-btn" class="btn btn-default"><i class="glyphicon glyphicon-font"></i></a>
+          <div class='code'>
+            <code>
+              $('input#example-4').mlKeyboard({<br/>
+                &nbsp;&nbsp;layout: 'it_IT',<br/>
+                &nbsp;&nbsp;trigger: '#example-4-btn'<br/>
+              });
+            </code>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -72,7 +120,7 @@
           By default plugin goes with all layouts included, but it's possible to customize plugin and left only some layouts as also new layouts can be easy added.
         </p>
         <p>
-          
+          See document in docs folder.
         </p>
       </div>
     </div>
