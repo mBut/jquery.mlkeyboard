@@ -29,6 +29,8 @@ The following options are available to pass into ML Keyboard on initialization.
 To change behaviour of single input field special data attribute should be added to it's tag name <code>data-mlkeyboard-&lt;option&gt;="value"</code> where <code>option</code> is the same attribute like it's described before.
 
 ###### Currently possible layouts</h5>
+* **en_US** - English
 * **es_ES** - Spanish
-* **ru_RU** - Russian
+* **it_IT** - Italian
 * **pt_PT** - Portuguese
+* **ru_RU** - Russian
