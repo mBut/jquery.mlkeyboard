@@ -289,6 +289,8 @@ Keyboard.prototype.setUpFor = function($input) {
   if (this.options.trigger) {
     var $trigger = $(this.options.trigger);
     $trigger.bind('click', function(e) {
+      e.preventDefault();
+
       if (_this.isVisible) { _this.hideKeyboard(); }
       else {
         _this.showKeyboard($input);
