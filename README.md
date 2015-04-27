@@ -6,13 +6,13 @@
 
 ## Usage
 * Download <code>jquery.ml-keyboard.min.js</code> and <code>jquery.ml-keyboard.css</code> files and add to your project.
-* Activate the plugin on the input fields with prefered layot <code>$('input').mlKeyboard({layout: 'es'});</code>.
+* Activate the plugin on the input fields with prefered layot <code>$('input').mlKeyboard({layout: 'es_ES'});</code>.
 * It's ready.
 
 ### Options
 The following options are available to pass into ML Keyboard on initialization.
 
-* (string) **layout:** set layout which is applicable to all input fields. By default it has value 'en_us' what is equal to American English layout.
+* (string) **layout:** set layout which is applicable to all input fields. By default it has value 'en_US' what is equal to American English layout.
 
 * (boolean) **active_shift:** when user first time focus on input field virtual keyboards shift is active. Default value - true.
 
@@ -29,6 +29,6 @@ The following options are available to pass into ML Keyboard on initialization.
 To change behaviour of single input field special data attribute should be added to it's tag name <code>data-mlkeyboard-&lt;option&gt;="value"</code> where <code>option</code> is the same attribute like it's described before.
 
 ###### Currently possible layouts</h5>
-* **es** - Spanish
-* **ru** - Russian
-* **pt** - Portuguese
+* **es_ES** - Spanish
+* **ru_RU** - Russian
+* **pt_PT** - Portuguese
