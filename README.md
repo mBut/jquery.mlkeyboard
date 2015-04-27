@@ -27,7 +27,8 @@ The following options are available to pass into ML Keyboard on initialization.
 * (boolean) **enabled:** - change it to false if you want temporary disable keyboard. This param is useful when defines as input data attribute (read below how to set up single inputs with data attributes).
 
 To change behaviour of single input field special data attribute should be added to it's tag name <code>data-mlkeyboard-&lt;option&gt;="value"</code> where <code>option</code> is the same attribute like it's described before.
-        
+
 ###### Currently possible layouts</h5>
 * **es** - Spanish
 * **ru** - Russian
+* **pt** - Portuguese
