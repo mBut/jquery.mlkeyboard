@@ -13,3 +13,7 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('input#example-4').mlKeyboard({layout: 'it_IT', trigger: '#example-4-btn'});
 });
+
+$(document).ready(function(){
+  $('input#example-5').mlKeyboard({layout: 'fr_FR', trigger: '#example-5-btn'});
+});

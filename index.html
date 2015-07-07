@@ -69,7 +69,8 @@
 
       <div class="col-md-6">
         <div class="example-block">
-          <h4>Cusom keyboard trigger button</h4>
+          <h4>Italian
+          <i>(click vowels to select accents)</i></h4>
           <input type="text" id="example-4" class="col-md-10" placeholder="Try"/>
           <a href='#' id="example-4-btn" class="btn btn-default"><i class="glyphicon glyphicon-font"></i></a>
           <div class='code'>
@@ -83,6 +84,24 @@
         </div>
       </div>
     </div>
+
+    <div class="col-md-6">
+      <div class="example-block">
+        <h4>French
+        <i>(click vowels to select accents)</i></h4>
+        <input type="text" id="example-5" class="col-md-10" placeholder="Try"/>
+        <a href='#' id="example-5-btn" class="btn btn-default"><i class="glyphicon glyphicon-font"></i></a>
+        <div class='code'>
+          <code>
+            $('input#example-5').mlKeyboard({<br/>
+              &nbsp;&nbsp;layout: 'fr_FR',<br/>
+              &nbsp;&nbsp;trigger: '#example-5-btn'<br/>
+            });
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <div class="row">
       <div class="col-md-12">
