@@ -174,7 +174,7 @@ KeySpace.prototype = new Key();
 KeySpace.prototype.constructor = KeySpace;
   var KEYS_COUNT = 53;
 
-function Keyboard(options){
+function Keyboard(selector, options){
   this.defaults = {
     layout: 'en_US',
     active_shift: true,
@@ -195,7 +195,7 @@ function Keyboard(options){
 
   this.$keyboard = $("<div/>").attr("id", "mlkeyboard");
   this.$modifications_holder = $("<ul/>").addClass('mlkeyboard-modifications');
-  this.$current_input = $("input[type='text']").first();
+  this.$current_input = $(selector);
 }
 
 Keyboard.prototype.init = function() {
@@ -416,7 +416,7 @@ Keyboard.prototype.changeKeysState = function() {
 
 
   $.fn.mlKeyboard = function(options) {
-    var keyboard = new Keyboard(options);
+    var keyboard = new Keyboard(this.selector, options);
     keyboard.init();
 
     this.each(function(){

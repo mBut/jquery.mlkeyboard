@@ -1,6 +1,6 @@
 var KEYS_COUNT = 53;
 
-function Keyboard(options){
+function Keyboard(selector, options){
   this.defaults = {
     layout: 'en_US',
     active_shift: true,
@@ -21,7 +21,7 @@ function Keyboard(options){
 
   this.$keyboard = $("<div/>").attr("id", "mlkeyboard");
   this.$modifications_holder = $("<ul/>").addClass('mlkeyboard-modifications');
-  this.$current_input = $("input[type='text']").first();
+  this.$current_input = $(selector);
 }
 
 Keyboard.prototype.init = function() {
