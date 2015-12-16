@@ -176,15 +176,36 @@ Keyboard.prototype.inputLocalOptions = function() {
 };
 
 Keyboard.prototype.printChar = function(char) {
-  var current_val = this.$current_input.val();
-  this.$current_input.val(current_val + char);
-  this.$current_input.focus().trigger("input");
+  var selStart = this.$current_input[0].selectionStart;
+  var selEnd = this.$current_input[0].selectionEnd;
+  var textAreaStr = this.$current_input.val();
+  var value = textAreaStr.substring(0, selStart) + char + textAreaStr.substring(selEnd);
+
+  //var current_val = this.$current_input.val();
+  this.$current_input.val(value).focus();
+  this.$current_input[0].selectionStart = selStart+1, this.$current_input[0].selectionEnd = selStart+1;
+  //this.$current_input.focus().trigger("input");
+
 };
 
 Keyboard.prototype.deleteChar = function() {
-  var current_val = this.$current_input.val();
+  var selStart = this.$current_input[0].selectionStart;
+  var selEnd = this.$current_input[0].selectionEnd;
+
+  var textAreaStr = this.$current_input.val();
+  var after = textAreaStr.substring(0, selStart-1);
+  console.log(after);
+
+  var value = after + textAreaStr.substring(selEnd);
+
+  //var value = textAreaStr.slice(selStart, -1);
+
+  this.$current_input.val(value).focus();
+  this.$current_input[0].selectionStart = selStart-1, this.$current_input[0].selectionEnd = selStart-1;
+
+  /*var current_val = this.$current_input.val();
   this.$current_input.val(current_val.slice(0,-1));
-  this.$current_input.focus().trigger("input");
+  this.$current_input.focus().trigger("input");*/
 };
 
 Keyboard.prototype.showModifications = function(caller) {
