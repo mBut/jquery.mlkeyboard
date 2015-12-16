@@ -17,3 +17,7 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('input#example-5').mlKeyboard({layout: 'fr_FR', trigger: '#example-5-btn'});
 });
+
+$(document).ready(function(){
+  $('textarea#example-6').mlKeyboard({layout: 'pt_PT', trigger: '#example-6-btn'});
+});
