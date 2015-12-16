@@ -20,7 +20,8 @@ mlKeyboard.layouts.pt_PT = [
   {d: 'w',u: 'W'},
   {d: 'e',u: 'E', m: [
     {d: 'e', u: 'E'},
-    {d: 'é', u: 'É'}
+    {d: 'é', u: 'É'},
+    {d: 'ê', u: 'Ê'}
   ]},
   {d: 'r',u: 'R'},
   {d: 't',u: 'T'},
