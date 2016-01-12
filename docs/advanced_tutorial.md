@@ -128,6 +128,7 @@ From command line perform
 ```bash
 grunt
 ```
+> Remember to execute npm install after cloned the repository
 
 and now you can use your layout with
 

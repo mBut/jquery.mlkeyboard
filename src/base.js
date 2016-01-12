@@ -9,7 +9,7 @@
   @@include('keyboard.js')
 
   $.fn.mlKeyboard = function(options) {
-    var keyboard = new Keyboard(options);
+    var keyboard = new Keyboard(this.selector, options);
     keyboard.init();
 
     this.each(function(){
@@ -24,3 +24,4 @@
 @@include('layouts/es_ES.js')
 @@include('layouts/pt_PT.js')
 @@include('layouts/it_IT.js')
+@@include('layouts/fr_FR.js')
