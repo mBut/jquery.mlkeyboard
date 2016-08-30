@@ -45,4 +45,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-include-replace');
 
   grunt.registerTask('build', ['includereplace', 'sass', 'uglify']);
+  grunt.registerTask('default', ['includereplace', 'sass', 'uglify']);
 };
