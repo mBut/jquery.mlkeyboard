@@ -186,15 +186,25 @@ function Keyboard(selector, options){
     show_on_focus: true,
     hide_on_blur: true,
     trigger: undefined,
-    enabled: true
+    enabled: true,
+    is_exists: false,
+    defined_element: undefined
   };
+
+  if(options.defined_element != undefined){
+    const $mlkeyboard = $(options.defined_element);
+    if($mlkeyboard.length){
+      this.$keyboard = $mlkeyboard;
+      this.defaults.is_exists = true;
+    }
+  }
+  if (!this.defaults.is_exists) this.$keyboard = $("<div/>").attr("id", "mlkeyboard");
 
   this.global_options = $.extend({}, this.defaults, options);
   this.options = $.extend({}, {}, this.global_options);
 
   this.keys = [];
 
-  this.$keyboard = $("<div/>").attr("id", "mlkeyboard");
   this.$modifications_holder = $("<ul/>").addClass('mlkeyboard-modifications');
   this.$current_input = $(selector);
 }
@@ -203,6 +213,8 @@ Keyboard.prototype.init = function() {
   this.$keyboard.append(this.renderKeys());
   this.$keyboard.append(this.$modifications_holder);
   $("body").append(this.$keyboard);
+
+  if(!this.options.is_exists) $("body").append(this.$keyboard);
 
   if (this.options.is_hidden) this.$keyboard.hide();
 
