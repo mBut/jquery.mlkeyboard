@@ -85,13 +85,26 @@ Key.prototype.toggleActiveState = function() {
 Key.prototype.isActive = function() {
   return false;
 };
-  function KeyDelete() {
+
+function KeyClose() {
+  Key.call(this, arguments);
+
+  this.id = "mlkeyboard-backspace-close";
+  this.default_value = '▼';
+}
+KeyClose.prototype = new Key();
+KeyClose.prototype.constructor = KeyClose;
+
+KeyClose.prototype.defaultClickAction = function() {
+  this.keyboard.hideKeyboard();
+};
+
+function KeyDelete() {
   Key.call(this, arguments);
 
   this.id = "mlkeyboard-backspace";
   this.default_value = 'delete';
 }
-
 KeyDelete.prototype = new Key();
 KeyDelete.prototype.constructor = KeyDelete;
 
@@ -231,6 +244,9 @@ Keyboard.prototype.renderKeys = function() {
     var key;
 
     switch(i) {
+    case 0:
+      key = new KeyClose(this);
+      break; 
     case 13:
       key = new KeyDelete(this);
       break;
@@ -441,7 +457,7 @@ Keyboard.prototype.changeKeysState = function() {
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
 mlKeyboard.layouts.en_US = [
-  {d: '`', u: '~'},
+  {},
   {d: '1',u: '!'},
   {d: '2',u: '@'},
   {d: '3',u: '#'},
@@ -500,7 +516,7 @@ mlKeyboard.layouts.en_US = [
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
 mlKeyboard.layouts.ru_RU = [
-  {d: 'ё',u: 'Ё'},
+  {},
   {d: '1',u: '!'},
   {d: '2',u: '\''},
   {d: '3',u: '№'},
@@ -559,7 +575,7 @@ mlKeyboard.layouts.ru_RU = [
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
 mlKeyboard.layouts.es_ES = [
-  {d: '<', u: '>'},
+  {},
   {d: '1',u: '¡'},
   {d: '2',u: '!'},
   {d: '3',u: '#'},
@@ -634,7 +650,7 @@ mlKeyboard.layouts.es_ES = [
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
 mlKeyboard.layouts.pt_PT = [
-  {d: '\/', u: '|'},
+  {},
   {d: '1',u: '!'},
   {d: '2',u: '"'},
   {d: '3',u: '#'},
@@ -717,7 +733,7 @@ mlKeyboard.layouts.pt_PT = [
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
 mlKeyboard.layouts.it_IT = [
-  {d: '\\', u: '|'},
+  {},
   {d: '1',u: '!'},
   {d: '2',u: '"'},
   {d: '3',u: '£'},
@@ -789,7 +805,7 @@ mlKeyboard.layouts.it_IT = [
 var mlKeyboard = mlKeyboard || {layouts: {}};
 
 mlKeyboard.layouts.fr_FR = [
-  {d: '\/', u: '|'},
+  {},
   {d: '1',u: '&'},
   {d: '2',u: 'é', m:[
     {d: '2', u:'é'},
