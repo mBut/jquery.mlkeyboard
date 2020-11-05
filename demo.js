@@ -21,3 +21,7 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('textarea#example-6').mlKeyboard({layout: 'pt_PT', trigger: '#example-6-btn'});
 });
+
+$(document).ready(function(){
+  $('textarea#example-7').mlKeyboard({layout: 'tr_TR', trigger: '#example-7-btn'});
+});
