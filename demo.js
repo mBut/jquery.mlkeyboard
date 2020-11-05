@@ -23,5 +23,5 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-  $('textarea#example-7').mlKeyboard({layout: 'tr_TR', trigger: '#example-7-btn'});
+  $('input#example-7').mlKeyboard({layout: 'tr_TR', trigger: '#example-7-btn'});
 });
