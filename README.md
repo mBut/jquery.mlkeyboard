@@ -34,3 +34,4 @@ To change behaviour of single input field special data attribute should be added
 * **it_IT** - Italian
 * **pt_PT** - Portuguese
 * **ru_RU** - Russian
+* **fa_IR** - Persian
