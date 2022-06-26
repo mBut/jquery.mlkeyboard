@@ -211,7 +211,7 @@ Keyboard.prototype.showModifications = function(caller) {
   });
 
   // TODO: Remove magic numbers
-  width = (caller.$key.width() * _this.modifications.length) + (_this.modifications.length * 6);
+  width = (caller.$key.width() * _this.modifications.length) + (_this.modifications.length * 7);
   top = caller.$key.position().top - holder_padding;
   left = caller.$key.position().left - _this.modifications.length * caller.$key.width()/2;
 
