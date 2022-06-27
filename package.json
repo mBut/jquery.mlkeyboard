@@ -5,16 +5,16 @@
   "author": "Mihails Butorins",
   "homepage": "http://mbut.github.io/jquery.mlkeyboard/",
   "license": "MIT",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/mBut/jquery.mlkeyboard"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mBut/jquery.mlkeyboard"
   },
   "devDependencies": {
-    "grunt": "^0.4.2",
-    "grunt-contrib-uglify": "^0.3.2",
-    "grunt-contrib-sass": "^0.7.2",
-    "grunt-contrib-watch": "^0.5.3",
-    "grunt-contrib-concat": "^0.3.0",
-    "grunt-include-replace": "~1.2.0"
+    "grunt": "^1.5.3",
+    "grunt-contrib-concat": "^2.1.0",
+    "grunt-contrib-sass": "^2.0.0",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-include-replace": "^5.0.0"
   }
 }

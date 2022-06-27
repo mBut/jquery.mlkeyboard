@@ -25,3 +25,4 @@
 @@include('layouts/pt_PT.js')
 @@include('layouts/it_IT.js')
 @@include('layouts/fr_FR.js')
+@@include('layouts/fa_IR.js')

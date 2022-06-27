@@ -386,7 +386,7 @@ Keyboard.prototype.showModifications = function(caller) {
   });
 
   // TODO: Remove magic numbers
-  width = (caller.$key.width() * _this.modifications.length) + (_this.modifications.length * 6);
+  width = (caller.$key.width() * _this.modifications.length) + (_this.modifications.length * 7);
   top = caller.$key.position().top - holder_padding;
   left = caller.$key.position().left - _this.modifications.length * caller.$key.width()/2;
 
@@ -903,3 +903,76 @@ mlKeyboard.layouts.fr_FR = [
   {}  // Space
 ];
 
+var mlKeyboard = mlKeyboard || {layouts: {}};
+
+mlKeyboard.layouts.fa_IR = [
+  {d: '`', u: '~'},
+  {d: '1',u: '!'},
+  {d: '2',u: '@'},
+  {d: '3',u: '#'},
+  {d: '4',u: '$'},
+  {d: '5',u: '%'},
+  {d: '6',u: '^'},
+  {d: '7',u: '&'},
+  {d: '8',u: '*'},
+  {d: '9',u: '('},
+  {d: '0',u: ')'},
+  {d: '-',u: '_'},
+  {d: '=',u: '+'},
+  {}, // Delete
+  {}, // Tab
+  {d: 'ض',u: 'ض'},
+  {d: 'ص',u: 'ص'},
+  {d: 'ث',u: 'ث'},
+  {d: 'ق',u: 'ق'},
+  {d: 'ف',u: 'ف'},
+  {d: 'غ',u: 'غ'},
+  {d: 'ع',u: 'ع'},
+  {d: 'ه',u: 'ه'},
+  {d: 'خ',u: 'خ'},
+  {d: 'ح',u: 'ح'},
+  {d: ']',u: '}'},
+  {d: 'چ',u: 'چ', m:[
+    {d: 'چ', u: 'چ'},
+    {d: '[', u: '['},
+    {d: '{', u: '{'},
+  ]},
+  {d: '\\',u: '|'},
+  {}, // Caps lock
+  {d: 'ش',u: 'ش'},
+  {d: 'س',u: 'س'},
+  {d: 'ی',u: 'ی'},
+  {d: 'ب',u: 'ب'},
+  {d: 'ل',u: 'ل'},
+  {d: 'ا',u: 'ا'},
+  {d: 'ت',u: 'ت'},
+  {d: 'ن',u: 'ن'},
+  {d: 'م',u: 'م'},
+  {d: 'ک',u: 'ک', m:[
+    {d: 'ک', u: 'ک'},
+    {d: ';', u: ';'},
+    {d: ':', u: ':'},
+  ]},
+  {d: 'گ',u: 'گ', m: [
+    {d: '', u: ''},
+    {d: '\'', u: '\''},
+    {d: '"', u: '"'},
+  ]},
+  {}, // Return
+  {}, // Left shift
+  {d: 'ظ',u: 'ظ'},
+  {d: 'ط',u: 'ط'},
+  {d: 'ز',u: 'ز', m: [
+    { d: 'ز',u: 'ز' },
+    { d: 'ژ', u: 'ژ'}
+  ]},
+  {d: 'ر',u: 'ر'},
+  {d: 'ذ',u: 'ذ'},
+  {d: 'د',u: 'د'},
+  {d: 'پ',u: 'پ'},
+  {d: ',',u: '<'},
+  {d: '.',u: '>'},
+  {d: '/',u: '?'},
+  {}, // Right shift
+  {}  // Space
+];
