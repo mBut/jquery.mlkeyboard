@@ -196,7 +196,7 @@ function Keyboard(selector, options){
 
   this.$keyboard = $("<div/>").attr("id", "mlkeyboard");
   this.$modifications_holder = $("<ul/>").addClass('mlkeyboard-modifications');
-  this.$current_input = $(selector);
+  this.$current_input = (typeof selector === 'string') ? $(document).find(selector) : $(selector);
 }
 
 Keyboard.prototype.init = function() {
@@ -288,7 +288,7 @@ Keyboard.prototype.setUpFor = function($input) {
   }
 
   if (this.options.trigger) {
-    var $trigger = $(this.options.trigger);
+    var $trigger = (typeof this.options.trigger === 'string') ? $(document).find(this.options.trigger) : $(this.options.trigger);
     $trigger.bind('click', function(e) {
       e.preventDefault();
 
